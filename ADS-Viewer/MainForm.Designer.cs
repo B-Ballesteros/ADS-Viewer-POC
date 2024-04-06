@@ -31,7 +31,10 @@
             fileGroupBox = new GroupBox();
             fileSelectButton = new Button();
             fileSelectTextBox = new TextBox();
+            logGroupBox = new GroupBox();
+            logTextBox = new TextBox();
             fileGroupBox.SuspendLayout();
+            logGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // fileGroupBox
@@ -63,16 +66,39 @@
             fileSelectTextBox.Size = new Size(667, 23);
             fileSelectTextBox.TabIndex = 0;
             // 
+            // logGroupBox
+            // 
+            logGroupBox.Controls.Add(logTextBox);
+            logGroupBox.Location = new Point(12, 98);
+            logGroupBox.Name = "logGroupBox";
+            logGroupBox.Size = new Size(760, 451);
+            logGroupBox.TabIndex = 1;
+            logGroupBox.TabStop = false;
+            logGroupBox.Text = "Log";
+            // 
+            // logTextBox
+            // 
+            logTextBox.Dock = DockStyle.Fill;
+            logTextBox.Location = new Point(3, 19);
+            logTextBox.Multiline = true;
+            logTextBox.Name = "logTextBox";
+            logTextBox.ReadOnly = true;
+            logTextBox.Size = new Size(754, 429);
+            logTextBox.TabIndex = 0;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
+            Controls.Add(logGroupBox);
             Controls.Add(fileGroupBox);
             Name = "MainForm";
             Text = "ADS-Viewer";
             fileGroupBox.ResumeLayout(false);
             fileGroupBox.PerformLayout();
+            logGroupBox.ResumeLayout(false);
+            logGroupBox.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -81,5 +107,7 @@
         private GroupBox fileGroupBox;
         private Button fileSelectButton;
         private TextBox fileSelectTextBox;
+        private GroupBox logGroupBox;
+        private TextBox logTextBox;
     }
 }
