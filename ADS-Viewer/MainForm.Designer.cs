@@ -83,6 +83,7 @@
             logTextBox.Multiline = true;
             logTextBox.Name = "logTextBox";
             logTextBox.ReadOnly = true;
+            logTextBox.ScrollBars = ScrollBars.Vertical;
             logTextBox.Size = new Size(754, 429);
             logTextBox.TabIndex = 0;
             // 
