@@ -44,7 +44,7 @@ namespace ADS_Viewer
             {
                 Debug.WriteLine(ex.Message);
                 result = string.Empty;
-                logger.AddToLog(ex.Message);
+                logger?.AddToLog($"Error: {ex.Message}");
             }
             return result;
         }
