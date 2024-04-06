@@ -84,7 +84,8 @@
             logTextBox.Multiline = true;
             logTextBox.Name = "logTextBox";
             logTextBox.ReadOnly = true;
-            logTextBox.Size = new Size(754, 416);
+            logTextBox.ScrollBars = ScrollBars.Vertical;
+            logTextBox.Size = new Size(754, 429);
             logTextBox.TabIndex = 0;
             // 
             // processButton

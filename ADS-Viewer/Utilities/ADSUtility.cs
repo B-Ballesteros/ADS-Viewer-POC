@@ -39,6 +39,7 @@ namespace ADS_Viewer.Utilities
                     Arguments = $"-Command \"{command}\"",
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
+                    WindowStyle = ProcessWindowStyle.Hidden,
                     RedirectStandardError = true
                 };
 

@@ -21,7 +21,7 @@ namespace ADS_Viewer
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 1000;
             timer.Tick += Timer_Tick;
-            logTextBox.VisibleChanged += VisibleTextChanged;
+            logTextBox.TextChanged += LogTextChanged;
             processButton.Click += ProcesssButton_Clic;
             timer.Start();
         }
@@ -46,7 +46,7 @@ namespace ADS_Viewer
             {
                 Debug.WriteLine(ex.Message);
                 result = string.Empty;
-                logger?.AddToLog(ex.Message);
+                logger?.AddToLog($"Error: {ex.Message}");
             }
             return result;
         }
@@ -63,7 +63,7 @@ namespace ADS_Viewer
             logTextBox.Text = logger?.GetLogAsText(false);
         }
 
-        private void VisibleTextChanged(object? sender, EventArgs e)
+        private void LogTextChanged(object? sender, EventArgs e)
         {
             if (logTextBox.Visible)
             {
