@@ -1,3 +1,4 @@
+using ADS_Viewer.Utilities;
 using System.Diagnostics;
 using System.Runtime.InteropServices.Marshalling;
 
@@ -5,8 +6,8 @@ namespace ADS_Viewer
 {
     public partial class MainForm : Form
     {
-        private Utilities.Logger logger;
-        private  System.Windows.Forms.Timer timer;
+        private Utilities.Logger? logger;
+        private  System.Windows.Forms.Timer? timer;
 
         public MainForm()
         {
@@ -21,12 +22,13 @@ namespace ADS_Viewer
             timer.Interval = 1000;
             timer.Tick += Timer_Tick;
             logTextBox.VisibleChanged += VisibleTextChanged;
+            processButton.Click += ProcesssButton_Clic;
             timer.Start();
         }
 
         private string SelectFilePath()
         {
-            logger.AddToLog("Selecting file.");
+            logger?.AddToLog("Selecting file.");
             string result = string.Empty;
             try
             {
@@ -38,13 +40,13 @@ namespace ADS_Viewer
                 if(openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     result =  openFileDialog.FileName;
-                    logger.AddToLog($"Selected file: {result}");
+                    logger?.AddToLog($"Selected file: {result}");
                 }
             }catch(Exception ex)
             {
                 Debug.WriteLine(ex.Message);
                 result = string.Empty;
-                logger.AddToLog(ex.Message);
+                logger?.AddToLog(ex.Message);
             }
             return result;
         }
@@ -58,7 +60,7 @@ namespace ADS_Viewer
 
         private void Timer_Tick(object? sender, EventArgs e)
         {
-            logTextBox.Text = logger.GetLogAsText(false);
+            logTextBox.Text = logger?.GetLogAsText(false);
         }
 
         private void VisibleTextChanged(object? sender, EventArgs e)
@@ -68,6 +70,11 @@ namespace ADS_Viewer
                 logTextBox.SelectionStart = logTextBox.Text.Length;
                 logTextBox.ScrollToCaret();
             }
+        }
+
+        private void ProcesssButton_Clic(object? sender, EventArgs e)
+        {
+            ADSUtility.GetADSFrom(fileSelectTextBox.Text, logger);
         }
     }
 }

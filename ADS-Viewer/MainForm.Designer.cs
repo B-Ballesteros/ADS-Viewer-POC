@@ -33,6 +33,7 @@
             fileSelectTextBox = new TextBox();
             logGroupBox = new GroupBox();
             logTextBox = new TextBox();
+            processButton = new Button();
             fileGroupBox.SuspendLayout();
             logGroupBox.SuspendLayout();
             SuspendLayout();
@@ -69,9 +70,9 @@
             // logGroupBox
             // 
             logGroupBox.Controls.Add(logTextBox);
-            logGroupBox.Location = new Point(12, 98);
+            logGroupBox.Location = new Point(12, 111);
             logGroupBox.Name = "logGroupBox";
-            logGroupBox.Size = new Size(760, 451);
+            logGroupBox.Size = new Size(760, 438);
             logGroupBox.TabIndex = 1;
             logGroupBox.TabStop = false;
             logGroupBox.Text = "Log";
@@ -83,14 +84,24 @@
             logTextBox.Multiline = true;
             logTextBox.Name = "logTextBox";
             logTextBox.ReadOnly = true;
-            logTextBox.Size = new Size(754, 429);
+            logTextBox.Size = new Size(754, 416);
             logTextBox.TabIndex = 0;
+            // 
+            // processButton
+            // 
+            processButton.Location = new Point(691, 82);
+            processButton.Name = "processButton";
+            processButton.Size = new Size(75, 23);
+            processButton.TabIndex = 2;
+            processButton.Text = "Process";
+            processButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 561);
+            Controls.Add(processButton);
             Controls.Add(logGroupBox);
             Controls.Add(fileGroupBox);
             Name = "MainForm";
@@ -109,5 +120,6 @@
         private TextBox fileSelectTextBox;
         private GroupBox logGroupBox;
         private TextBox logTextBox;
+        private Button processButton;
     }
 }
